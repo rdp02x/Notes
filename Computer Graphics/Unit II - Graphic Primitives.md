@@ -63,7 +63,6 @@
 |                                                                        | The points generated are not always accurate.                                |
 #### 2. Bresenham’s Line Drawing Algorithm
 - The **Bresenham’s algorithm** mainly uses whole numbers / integers for it’s calculation, which make this algorithm faster and more efficient.
-> [!NOTE] Note
 > A thing to know is any line in the system is represented by —> $y = mx + c$, where $m$ is the slope of the line (i.e. $\frac{\Delta{y}}{\Delta{x}}$), and $c$ is the point where the line intersects the $y$ axis (y-intercept).
 - A line will have a $\frac{\Delta{y}}{\Delta{x}} = 1$, if the angles around the lines are equals $45°$
 - If the $\Delta{x}$ is greater than $\Delta{y}$, the slope of the line will be less than 1. ($\frac{\Delta{y}}{\Delta{x}} > 1$)
