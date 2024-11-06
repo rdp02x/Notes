@@ -202,5 +202,3 @@ Numeric data types represent numeric values and can be any number from negative 
          # function body
          return result
      ```
-
-If you need any more details or adjustments, just let me know!
