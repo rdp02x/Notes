@@ -217,7 +217,7 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 | **Advantages**                                                                           | **Disadvantages**                             |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
 | Powerful and efficient algorithm.                                                        | Accuracy of generated points can be an issue. |
-| Based on the simple circle equation \( X^2 + Y^2 = R^2 \), making it easy to understand. | The resulting circle may not appear smooth.   |
+| Based on the simple circle equation $(X^2 + Y^2 = R^2)$, making it easy to understand. | The resulting circle may not appear smooth.   |
 | Easy to implement from a programmer’s perspective.                                       | Can be time-consuming to execute.             |
 | Suitable for generating curves on raster displays.                                       |                                               |
 
