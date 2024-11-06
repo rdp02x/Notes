@@ -1,3 +1,5 @@
+# Unit II - Graphics Primitives
+
 - Graphics primitives are the simplest graphical elements used to build complex shapes and images in computer graphics.
 - They form the foundational elements from which all visual representations are made.
 #### Types of Primitives:
