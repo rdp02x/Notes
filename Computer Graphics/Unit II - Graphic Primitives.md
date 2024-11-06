@@ -217,7 +217,7 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 | **Advantages**                                                                           | **Disadvantages**                             |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
 | Powerful and efficient algorithm.                                                        | Accuracy of generated points can be an issue. |
-| Based on the simple circle equation $(X^2 + Y^2 = R^2)$, making it easy to understand. | The resulting circle may not appear smooth.   |
+| Based on the simple circle equation $(X^2 + Y^2 = R^2)$, making it easy to understand. | The resulting circle may not appear smooth.     |
 | Easy to implement from a programmer’s perspective.                                       | Can be time-consuming to execute.             |
 | Suitable for generating curves on raster displays.                                       |                                               |
 
@@ -241,5 +241,46 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 - In a polygon, the starting point $P_1$ and the ending point $P_6$ are the same.
 #### Types of Polygons Based on Shape
 - **Convex Polygons** - In a convex polygon, any line segment joining two interior points lies entirely inside the polygon. 
-- **Concave Polygons** - In a concave polygon, a line segment connecting two points may or may not lie inside the polygon. 
+- **Concave Polygons** - In a concave polygon, a line segment connecting two points may or may not lie inside the polygon.
 
+## The Inside or Outside Problem
+- This method is also known as the **Counting Number Method**. 
+- It is used to determine if a particular point is located inside or outside a polygon or object. 
+- This problem is crucial in computer graphics, especially when filling an object or determining if one object is obscured by another.
+- In computer graphics, the "inside or outside" problem helps determine if one object is hidden by another. 
+- This requires millions of calculations to check whether points are within boundaries.
+- To check if a point lies inside or outside an object by using the following methods:
+  1. Odd-Even Rule 
+  2. Nonzero Winding Number Rule
+#### Methods to Solve the Inside or Outside Problem
+##### 1. Odd-Even Rule
+- The **Odd-Even Rule** is based on counting the number of times a ray from the test point crosses the boundary of an object.
+- **Procedure**:
+  1. Draw a ray from the test point in any direction to infinity (commonly straight up).
+  2. Count how many times the ray intersects the boundary of the object.
+     - If the ray crosses an **odd number** of times (1, 3, 5, etc.), the point is **inside** the object.
+     - If it crosses an **even number** of times (0, 2, 4, etc.), the point is **outside** the object.
+##### 2. Winding Number Rule
+- The **Winding Number** is a count of the total number of times a curve wraps around a given point. 
+- The winding number depends on the curve's orientation (positive for counterclockwise, negative for clockwise).
+- **Steps**:
+  1. Initialize the winding number to zero.
+  2. Draw a line from the test point ( $P$ ) to a point outside the polygon without crossing any vertices.
+  3. For each edge crossing the line:
+     - Add 1 if the edge crosses in a counterclockwise direction.
+     - Subtract 1 if the edge crosses in a clockwise direction.
+  4. If the winding number is not zero, point ( $P$ ) is within the polygon; if it is zero, the point is outside.
+###### Illustrative Example:
+  - Imagine a pin and a rubber band tied along the edges of the polygon. When the rubber band fully covers the polygon edges, if it winds around the test pin at least once, the point is **inside** the polygon. Otherwise, it is **outside**.
+##### Alternative Method Using Edge Directions:
+  1. Assign directions to all polygon edges:
+     - Give edges moving **upwards** a value of **+1**.
+     - Give edges moving **downwards** a value of **-1**.
+  2. Draw a scan line from the test point towards the left-most X-direction.
+  3. Sum up the values of the edges intersected by the scan line:
+     - If the sum is **non-zero**, the point is inside the polygon.
+     - If the sum is **zero**, the point is outside.
+
+
+
+---
