@@ -1,3 +1,5 @@
+# Unit I - Introduction to Computer Graphics.md
+
 - It is the study of creation and manipulation of images using computers. It involves:
 	- Modeling — Creating the shapes and geometry in 3D.
 	- Rendering — Converting 3D models into 2D images.
