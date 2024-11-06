@@ -53,12 +53,12 @@
 
 ##### Advantages and Disadvantages of DDA algorithm
 
-| **Advantages**                                                         | **Disadvantages**                                                            |     |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --- |
-| It is a simple and easy-to-understand algorithm.                       | Extra overhead is involved due to the use of the `round off()` function.     |     |
-| It is straightforward to implement in code.                            | The `round off()` function increases the time complexity of the algorithm.   |     |
-| Avoids using multiplication operations, which reduces time complexity. | Resulting lines may not appear smooth because of the `round off()` function. |     |
-|                                                                        | The points generated are not always accurate.                                |     |
+| **Advantages**                                                         | **Disadvantages**                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| It is a simple and easy-to-understand algorithm.                       | Extra overhead is involved due to the use of the `round off()` function.     |
+| It is straightforward to implement in code.                            | The `round off()` function increases the time complexity of the algorithm.   |
+| Avoids using multiplication operations, which reduces time complexity. | Resulting lines may not appear smooth because of the `round off()` function. |
+|                                                                        | The points generated are not always accurate.                                |
 #### 2. Bresenham’s Line Drawing Algorithm
 - The **Bresenham’s algorithm** mainly uses whole numbers / integers for it’s calculation, which make this algorithm faster and more efficient.
 > [!NOTE] Note
