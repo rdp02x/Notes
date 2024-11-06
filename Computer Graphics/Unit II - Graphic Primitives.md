@@ -72,7 +72,7 @@
 ##### Derivation:
 - $y = mx + c$
 - $y = m(x_k + 1) + c$
-<br>
+<br> <br />
 - $d_1 = y - y_k$
 - $d_2 = y_k + 1 - y$
 <br>
