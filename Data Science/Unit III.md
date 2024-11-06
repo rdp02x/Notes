@@ -24,22 +24,25 @@ import numpy as np
 array = np.arange(20)
 ```
 Output: 
+```math
 $$ \begin{matrix}
 array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
 \end{matrix} $$
+```
 
 2. **Creating Two-Dimensional Arrays:**
 ```python
 array = np.arange(20).reshape(4, 5)
 ```
 Output: 
+```math
 $$ \begin{matrix}
 array ([[0, &1, &2, &3, &4], \\ 
 \hspace{15mm} [5, &6, &7, &8, &9], \\ 
 \hspace{17mm} [10, &11, &12, &13, &14], \\ 
 \hspace{17mm} [15, &16, &17, &18, &19]]) 
 \end{matrix} $$
-
+```
 
 #### Other NumPy Functions:
 - `np.empty((2, 3))` - Creates a 2 x 3 array of random numbers.
