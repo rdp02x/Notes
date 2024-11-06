@@ -227,9 +227,7 @@ print("Data of array1 is:", array1.data)
 ##### Basic Slicing Example:
 ```python
 import numpy as np
-a
-
- = np.arange(10)
+a = np.arange(10)
 s = slice(2, 7, 2)
 print(a[s])  # Output: [2 4 6]
 ```
