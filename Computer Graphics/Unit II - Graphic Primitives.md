@@ -75,46 +75,46 @@
 <br> <br />
 - $d_1 = y - y_k$
 - $d_2 = y_k + 1 - y$
-<br>
+<br> <br />
 - $d_1 = [m(x_k + 1) + c] - y_k$
 - $d_2 = y_k + 1 - m(x_k + 1) - c$
-<br>
+<br> <br />
 - $d_1 = m(x_k + 1) + c - y_k$
 - $d_2 = y_k + 1 - m(x_k + 1) - c$
-<br>
+<br> <br />
 - If $d_1 - d_2 < 0$ —> $y_k$
 - If $d_1 - d_2 > 0$ —> $y_k + 1$
-<br>
+<br> <br />
 • Keeping the values of $d_1 - d_2$:
 - $[m(x_k + 1) + c - y_k] - [y_k + 1 - m(x_k + 1) - c]$
 - $m(x_k + 1) + c - y_k - y_k - 1 + m(x_k + 1) + c$
 - $2m(x_k + 1) + 2c - 2y_k - 1$
-<br>
+<br> <br />
 • As we know that, $m = \frac{\Delta{x}}{\Delta{y}}$
 - $d_1 - d_2 = 2\frac{\Delta{y}}{\Delta{x}} (x_k + 1) + 2c - 2y_k - 1$
 - $\Delta{x}(d_1 - d_2) = 2\Delta yx_k - 2\Delta xy_k + 2\Delta y + 2\Delta xc - \Delta x$
 - $P_k = 2\Delta yx_k - 2\Delta xy_k + c$
 - $\frac{P_{next}}{p_{k+1}} = 2\Delta yx_{next} - 2\Delta xy_{next}$
-<br>
+<br> <br />
 - $P_{next} - P_k = (2\Delta yx_{next} - 2\Delta xy_{next}) - (2\Delta yx_k - 2\Delta xy_k)$
 - $P_{next} - P_k = 2\Delta yx_{next} - 2\Delta xy_{next} - 2\Delta yx_k + 2\Delta xy_k$
 - $P_{next} - P_k = 2\Delta y(x_{next} - x_k) - 2\Delta x(y_{next} - y_k)$
-<br>
+<br> <br />
 • If $P_{next} - P_k < 0$:
 - $P_{next} = P_k + 2\Delta y(x_k + 1 - x_k) - 2\Delta x(y_k - y_k)$
 - $P_k + 1 = P_k + 2\Delta y$
-<br>
+<br> <br />
 • If $P_{next} - P_k \geqslant 0$:
 - $P_{next} = P_k + 2\Delta y(x_k + 1 - x_k) - 2\Delta x(y_k + 1 - y_k)$
 - $P_k + 1 = P_k + 2\Delta y$
-<br>
+<br> <br />
 • Finding the initial value of $P_k$:
 - $P_k = 2\Delta yx_k - 2\Delta xy_k + 2\Delta y + 2\Delta xc - x$
-<br>
+<br> <br />
 • As we know:
 - $y_1 = mx_1 + c$
 - $c = y_1 - mx_1$
-<br>
+<br> <br />
 - $P_k = 2\Delta yx_1 - 2\Delta xy_1 + 2\Delta x(y_1 - \frac{\Delta y}{\Delta x} x_1) - \Delta x$
 - $P_k = 2\Delta yx_1 - 2\Delta xy_1 + 2\Delta xy_1 - 2\Delta yx_1 - \Delta x + 2\Delta y$
 - $P_k = 2\Delta y - \Delta x$
@@ -173,12 +173,12 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 | Executes quickly, though slightly slower than the DDA Algorithm.       |                                                                        |
 | Generates points that are more accurate compared to the DDA Algorithm. |                                                                        |
 | Uses only fixed points, enhancing stability and accuracy.              |                                                                        |
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br> <br />
+<br> <br />
+<br> <br />
+<br> <br />
+<br> <br />
+<br> <br />
 
 ## Circle Drawing Algorithms
 
@@ -216,8 +216,8 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 5. Keep repeating _Step-3_ and _Step-4_ until $X_{plot} \geqslant Y_{plot}$.
 
 6. _Step-5_ generates all the points for one octant. To find the points for other seven octants, follow the eight symmetry property of circle.
-<br>
-<br>
+<br> <br />
+<br> <br />
 
 #### Advantages and Disadvantages of the Mid-Point Circle Drawing Algorithm:
 
@@ -227,7 +227,7 @@ bresenhamAlgorithm (x1, x2, y1, y2) {
 | Based on the simple circle equation \( X^2 + Y^2 = R^2 \), making it easy to understand. | The resulting circle may not appear smooth.   |
 | Easy to implement from a programmer’s perspective.                                       | Can be time-consuming to execute.             |
 | Suitable for generating curves on raster displays.                                       |                                               |
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br /><br> <br />
 ## Polygons
 
 - A **polygon** is defined as an ordered list of vertices.
