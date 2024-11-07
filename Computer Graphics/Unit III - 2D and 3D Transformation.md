@@ -7,6 +7,7 @@
 - **Repositioning:** Move graphics to different locations on the screen.
 - **Resizing:** Change the dimensions of graphics.
 - **Changing Orientation:** Rotate or flip graphics.
+
 ### Basic Types of Transformations:
 1. **Translation:** Shifts a graphic from one position to another without altering its size, shape, or orientation.
 2. **Rotation:** Rotates a graphic around a specific point, changing its orientation.
@@ -17,8 +18,8 @@
 ### Transformation in a 2D Plane:
 - When transformations are applied to objects in a 2D plane (two-dimensional space), it is referred to as **2D Transformation**.
 - Each transformation is represented mathematically, using transformation matrices that define how to alter the position or size of graphics.
-### Composite Transformation Process
 
+### Composite Transformation Process
 - To achieve complex transformations, multiple transformations can be combined.
 - A sequential process helps in building complex transformations by combining simpler ones, enabling more versatile manipulation of graphics.
 - The process for performing a **composite transformation** in sequence includes the following steps:
@@ -26,8 +27,8 @@
 1. **Translation of Coordinates:** First, adjust the object's coordinates by moving it to the desired location.
 2. **Rotation of Translated Coordinates:** Next, rotate the translated coordinates to change the orientation of the object.
 3. **Scaling of Rotated Coordinates:** Finally, scale the rotated coordinates to resize the object as needed.
-## Homogeneous Coordinate System in Computer Graphics
 
+## Homogeneous Coordinate System in Computer Graphics
 - The **Homogeneous Coordinate System** is a system used in computer graphics to represent points and transformations more effectively, especially when handling multiple transformations in sequence.
 - This system allows transformations to be represented in a consistent format, facilitating complex manipulations.
 #### 3×3 Transformation Matrix: 
@@ -61,18 +62,12 @@
 
 1. Column Vector Representation:
    - Original point $P$ in column vector form: 
-     ```math
-     P = \begin{bmatrix} X \\ Y \end{bmatrix}
-     ```
+     $P = \begin{bmatrix} X \\ Y \end{bmatrix}$
    - Translated point $P'$: 
-     ```math
-     P' = \begin{bmatrix} X' \\ Y' \end{bmatrix}
-     ```
+     $P' = \begin{bmatrix} X' \\ Y' \end{bmatrix}$
 
 2. Translation Vector $T$**:
-   ```math
-   T = \begin{bmatrix} t_x \\ t_y \end{bmatrix}
-   ```
+   $T = \begin{bmatrix} t_x \\ t_y \end{bmatrix}$
 
 3. Transformation Equation:
    $P' = P + T$
@@ -102,18 +97,21 @@ Rotation can be done more easily using matrices. This is helpful when rotating m
 
 1. **Rotation Matrix**:
    - To rotate by an angle $\theta$, we use the rotation matrix:
-     $R = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}$ 
-
+```math
+$$R = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}$$ 
+```
 2. **Applying the Matrix to Rotate a Point**:
    - Multiply the point’s coordinates $P(X, Y)$ by the rotation matrix $R$ to get the new coordinates $P'(X', Y')$:
-     $\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$ 
-
+```math
+$$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$$ 
+```
 #### Rotation Direction:
 - **Counterclockwise (Positive)**: A positive angle rotates the object counterclockwise.
 - **Clockwise (Negative)**: For a negative angle, the matrix changes slightly:
-  $R = \begin{bmatrix} \cos(\theta) & \sin(\theta) \\ -\sin(\theta) & \cos(\theta) \end{bmatrix}$ 
-
-> [!NOTE] Sum and Difference of Angles
+```math
+$$R = \begin{bmatrix} \cos(\theta) & \sin(\theta) \\ -\sin(\theta) & \cos(\theta) \end{bmatrix}$$
+```
+> **Sum and Difference of Angles**
 > $sin(A + B) = sin(A) . cos(B) + cos(A) . sin(B)$ 
 > $sin(A - B) = sin(A) . cos(B) - cos(A) . sin(B)$ 
 > $cos(A + B) = cos(A) . cos(B) - sin(A) . sin(B)$ 
@@ -155,11 +153,14 @@ Then, the new coordinates can be calculated as:
 
 1. **Scaling Matrix**:
    - The scaling transformation can be represented by the following matrix $S$:
-     $S = \begin{bmatrix} S_x & 0 \\ 0 & S_y \end{bmatrix}$ 
-
+```math
+$$S = \begin{bmatrix} S_x & 0 \\ 0 & S_y \end{bmatrix}$$ 
+```
 2. **Applying the Scaling Matrix**:
    - To scale a point $P(X, Y)$, multiply its coordinates by the scaling matrix to get $P'(X', Y')$:
-     $\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} S_x & 0 \\ 0 & S_y \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} S_x & 0 \\ 0 & S_y \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$$
+``` 
    - This can also be written as:
      $P' = P \cdot S$ 
 #### Effects of Scaling Factors:
@@ -185,11 +186,13 @@ When reflecting across the **x-axis**, the object's x-coordinates remain the sam
   $Y' = -Y$ 
 
 - **Matrix Form**:
-  $\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$ 
-
+```math
+$$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$$ 
+```
 - **Homogeneous Coordinates (3x3 Matrix)**:
-  $\begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 
-  
+```math
+$$\begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+```  
 ##### 2. Reflection Across the Y-Axis
 
 When reflecting across the **y-axis**, the object's y-coordinates remain the same, but the x-coordinates are inverted.
@@ -199,10 +202,14 @@ When reflecting across the **y-axis**, the object's y-coordinates remain the sam
   $Y' = Y$ 
 
 - **Matrix Form**:
-  $\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$$ 
+```
 
 - **Homogeneous Coordinates (3x3 Matrix)**:
-  $\begin{bmatrix} -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+```
 
 ##### 3. Reflection Through the Origin
 
@@ -213,11 +220,13 @@ Reflecting through the **origin** is equivalent to flipping both $x$ and $y$ coo
   $Y' = -Y$ 
 
 - **Matrix Form**:
-  $\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$ 
-
+```math
+$$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} X \\ Y \end{bmatrix}$$ 
+```
 - **Homogeneous Coordinates (3x3 Matrix)**:
-  $\begin{bmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 
-
+```math
+  $$\begin{bmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+```
 ## Shear 
 
 - **Shearing** is a transformation that skews the shape of an object along a particular axis, creating a slanted appearance. 
@@ -239,10 +248,13 @@ The transformation can be represented as:
 - $Y_{\text{new}} = Y_{\text{old}}$ 
 
 ##### X-Shear Matrix Representation:
-- $\begin{bmatrix} X_{\text{new}} \\ Y_{\text{new}} \end{bmatrix} = \begin{bmatrix} 1 & Sh_x \\ 0 & 1 \end{bmatrix} \begin{bmatrix} X_{\text{old}} \\ Y_{\text{old}} \end{bmatrix}$
-
+```math
+$$\begin{bmatrix} X_{\text{new}} \\ Y_{\text{new}} \end{bmatrix} = \begin{bmatrix} 1 & Sh_x \\ 0 & 1 \end{bmatrix} \begin{bmatrix} X_{\text{old}} \\ Y_{\text{old}} \end{bmatrix}$$
+```
 ##### Homogeneous Coordinates (3x3 Matrix):
-- $\begin{bmatrix} 1 & Sh_x & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} 1 & Sh_x & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+``` 
 
 #### 2. Y-Shear Transformation
 In **Y-Shear**, the x-coordinates remain unchanged, while the y-coordinates are shifted. This causes horizontal lines to slope upwards or downwards.
@@ -255,9 +267,13 @@ The transformation can be represented as:
 - $X_{\text{new}} = X_{\text{old}}$ 
 - $Y_{\text{new}} = Y_{\text{old}} + Sh_y \times X_{\text{old}}$ 
 ##### Y-Shear Matrix Representation:
-- $\begin{bmatrix} X_{\text{new}} \\ Y_{\text{new}} \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ Sh_y & 1 \end{bmatrix} \begin{bmatrix} X_{\text{old}} \\ Y_{\text{old}} \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} X_{\text{new}} \\ Y_{\text{new}} \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ Sh_y & 1 \end{bmatrix} \begin{bmatrix} X_{\text{old}} \\ Y_{\text{old}} \end{bmatrix}$$
+``` 
 ##### Homogeneous Coordinates (3x3 Matrix):
-- $\begin{bmatrix} 1 & 0 & 0 \\ Sh_y & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 
+```math
+$$\begin{bmatrix} 1 & 0 & 0 \\ Sh_y & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+``` 
 
 ## Composite Transformation
 - **Composite Transformation** refers to combining two or more transformations into a single operation. 
@@ -266,7 +282,9 @@ The transformation can be represented as:
 - The order of operations is crucial, as the resulting transformation depends on how the individual transformations are arranged.
 - This is written as —> $T = T_1 \cdot T_2$ 
 - A composite transformation can be achieved by multiplying the individual transformation matrices together to obtain a combined matrix.
-  $$ [T] \cdot [X] = [X] \cdot [T_1] \cdot [T_2] \cdot [T_3] \cdots [T_n] $$ 
+```math
+$$[T] \cdot [X] = [X] \cdot [T_1] \cdot [T_2] \cdot [T_3] \cdots [T_n]$$
+``` 
   _Where_, $[T_1], [T_2], [T_3], \ldots, [T_n]$  are transformation matrices for **Translation**, **Scaling**, **Shearing**, **Rotation**, and **Reflection**.
 
 - The order of transformations is important in composite transformations. Since matrix multiplication is not commutative (i.e., $[A] \cdot [B] \neq [B] \cdot [A]$ ), changing the order of transformations will lead to different results.
@@ -280,9 +298,9 @@ The transformation can be represented as:
   2. **Rotate** the object about the origin by applying a rotation matrix. 
   3. **Translate** the object back to its original position by adding $X_p$  and $Y_p$  to the coordinates.
 This can be represented as:
-$$
-T = T_{\text{translate}}(X_p, Y_p) \cdot T_{\text{rotate}}(\theta) \cdot T_{\text{translate}}(-X_p, -Y_p)
-$$
+```math
+$$T = T_{\text{translate}}(X_p, Y_p) \cdot T_{\text{rotate}}(\theta) \cdot T_{\text{translate}}(-X_p, -Y_p)$$
+```
 _Where_,
 - $T_{\text{translate}}(X_p, Y_p)$  is the translation matrix to move the object to the origin.
 - $T_{\text{rotate}}(\theta)$  is the rotation matrix for the angle $\theta$ .
