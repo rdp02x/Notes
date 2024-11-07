@@ -1,3 +1,5 @@
+# Unit III - 2D and 3D Transformation
+
 ## Transformation
 
 - **Transformation** in computer graphics involves modifying an object's properties, such as position, size, or orientation, by applying specific mathematical rules.
@@ -61,14 +63,18 @@
 - This provides a straightforward way to compute the new position of points after translation by adding the translation vector to the original coordinates.
 
 1. Column Vector Representation:
-   - Original point $P$ in column vector form: 
-     $P = \begin{bmatrix} X \\ Y \end{bmatrix}$
+   - Original point $P$ in column vector form:
+```math
+$$P = \begin{bmatrix} X \\ Y \end{bmatrix}$$
+```
    - Translated point $P'$: 
-     $P' = \begin{bmatrix} X' \\ Y' \end{bmatrix}$
-
+```math
+$$P' = \begin{bmatrix} X' \\ Y' \end{bmatrix}$$
+```
 2. Translation Vector $T$**:
-   $T = \begin{bmatrix} t_x \\ t_y \end{bmatrix}$
-
+```math
+$$T = \begin{bmatrix} t_x \\ t_y \end{bmatrix}$$
+```
 3. Transformation Equation:
    $P' = P + T$
 
@@ -111,13 +117,12 @@ $$\begin{bmatrix} X' \\ Y' \end{bmatrix} = \begin{bmatrix} \cos(\theta) & -\sin(
 ```math
 $$R = \begin{bmatrix} \cos(\theta) & \sin(\theta) \\ -\sin(\theta) & \cos(\theta) \end{bmatrix}$$
 ```
-> **Sum and Difference of Angles**
-> $sin(A + B) = sin(A) . cos(B) + cos(A) . sin(B)$ 
-> $sin(A - B) = sin(A) . cos(B) - cos(A) . sin(B)$ 
-> $cos(A + B) = cos(A) . cos(B) - sin(A) . sin(B)$ 
-> $cos(A - B) = cos(A) . cos(B) + sin(A) . sin(B)$ 
-
-> [!NOTE]
+> [!Note]
+> 
+> - $sin(A + B) = sin(A) . cos(B) + cos(A) . sin(B)$
+> - $sin(A - B) = sin(A) . cos(B) - cos(A) . sin(B)$
+> - $cos(A + B) = cos(A) . cos(B) - sin(A) . sin(B)$ 
+> - $cos(A - B) = cos(A) . cos(B) + sin(A) . sin(B)$ 
 > 
 > | **Function**       | **0°**    | **30°**              | **45°**              | **60°**              | **90°**   |
 > | ------------------ | --------- | -------------------- | -------------------- | -------------------- | --------- |
