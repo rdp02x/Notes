@@ -311,3 +311,435 @@ _Where_,
 - $T_{\text{rotate}}(\theta)$  is the rotation matrix for the angle $\theta$ .
 - $T_{\text{translate}}(-X_p, -Y_p)$  is the translation matrix to move the object back to the original point.
 
+# 3D Transformations
+- In Computer Graphics, transformations are essential for manipulating 3D objects. 
+- These transformations help in adjusting the **position, size, and orientation** of objects in a 3D space, allowing us to generate realistic images and animations.
+- With these transformations, we can express the location of objects relative to others, simulate object movements, and change viewpoints.
+
+### Key Points of 3D Transformations:
+1. **Purpose**:
+   - Used to change the **position**, **size**, or **orientation** of objects in 3D space.
+   - Helpful in viewing changes, where the viewpoint might change quickly or objects may move relative to one another.
+   - A sequence of transformations can be applied repeatedly to achieve the desired effect.
+
+2. **Matrix Representations**:
+   - **2D Transformations**: 
+     - Use a **2 × 2 matrix** for linear transformations (like rotation and scaling) or a **3 × 3 matrix** for homogeneous coordinates.
+   - **3D Transformations**:
+     - Use a **3 × 3 matrix** for transformations involving **linear algebraic equations** (like scaling, rotation).
+     - Use a **4 × 4 matrix** for **homogeneous coordinates**, which includes translation, allowing for more complex transformations.
+
+### Importance of Using Matrices in 3D Transformations:
+- Matrices allow for the **concatenation** of multiple transformations into a single transformation matrix, improving efficiency.
+- Using a **4 × 4 matrix** for homogeneous coordinates in 3D ensures that all transformations, including translation, scaling, rotation, and perspective projections, can be combined seamlessly.
+- It simplifies complex calculations and helps in efficient processing of transformations in computer graphics systems.
+
+## Translation in 3D Transformations
+- Translation refers to shifting an object from one position to another in a coordinate system.
+- It involves changing the object's position without altering its shape, size, or orientation.
+- The translation process uses translation vectors to move objects in different directions.
+- It affects the position of the object but does not change its shape or orientation.
+- To translate a 3D object, every vertex of the object needs to be transformed using the translation vectors.
+- Translations require three vectors in the $x$, $y$, and $z$ directions:
+  - $T_x$: Translation in the x-direction.
+  - $T_y$: Translation in the y-direction.
+  - $T_z$: Translation in the z-direction.
+
+##### Example
+- Let’s say $P$ is a point in 3D space with coordinates $(x, y, z)$.
+- After applying translation using vectors $T_x$, $T_y$, and $T_z$, the new coordinates of the point become:
+  - $x1 = x + Tx$
+  - $y1 = y + Ty$
+  - $z1 = z + Tz$
+- Thus, the translated point has coordinates $(x_1, y_1, z_1)$.
+
+#### Matrix Representation for 3D Translation
+- Translation transformations in 3D can be represented using a 4x4 matrix. This matrix is used to perform translation on homogeneous coordinates.
+  
+1. The matrix for translation can be represented as:   
+```math
+   $$
+   \begin{bmatrix}
+   _1 & 0 & 0 & T_x \\
+   0 & _1 & 0 & T_y \\
+   0 & 0 & _1 & T_z \\
+   0 & 0 & 0 & _1
+   \end{bmatrix}
+   $$
+```
+
+3. To translate a point $P$ with coordinates $(x, y, z)$, the translation matrix is multiplied with the point in homogeneous coordinates. Homogeneous coordinate of point $P$ is represented as:  
+```math
+     $$
+     \begin{bmatrix}
+     x \\
+     y \\
+     z \\
+     _1
+     \end{bmatrix}
+     $$
+```
+
+4. Matrix multiplication for translation:
+```math
+   $$
+   \begin{bmatrix}
+   x_1 \\
+   y_1 \\
+   z_1 \\
+   _1
+   \end{bmatrix}
+   = 
+   \begin{bmatrix}
+   _1 & 0 & 0 & T_x \\
+   0 & _1 & 0 & T_y \\
+   0 & 0 & _1 & T_z \\
+   0 & 0 & 0 & _1
+   \end{bmatrix}
+   \times
+   \begin{bmatrix}
+   x \\
+   y \\
+   z \\
+   _1
+   \end{bmatrix}
+   $$
+```
+   - Resulting coordinates after translation:
+     - $x_1 = x + T_x$
+     - $y_1 = y + T_y$
+     - $z_1 = z + T_z$
+
+## Scaling in 3D Transformations
+- Scaling is a transformation used to change the size of an object, either by increasing or decreasing its dimensions.
+- Scaling alters the object's size while maintaining its shape and orientation.
+
+### Scaling Factors in 3D
+- Scaling in 3D requires three scaling factors:
+  - $S_x$: Scaling factor along the x-axis
+  - $S_y$: Scaling factor along the y-axis
+  - $S_z$: Scaling factor along the z-axis
+
+- The scaling factors determine how much an object will stretch or shrink along each axis.
+
+### Scaling Equations
+- To scale a point $(X_{old}, Y_{old}, Z_{old})$ by factors $S_x$, $S_y$, $S_z$, the _{new} coordinates $(X_{new}, Y_{new}, Z_{new})$ are calculated using the following equations:
+  - $X_{new} = X_{old} \times S_x$
+  - $Y_{new} = Y_{old} \times S_y$
+  - $Z_{new} = Z_{old} \times S_z$
+
+### Matrix Representation for 3D Scaling
+
+Matrix Format:
+- Scaling transformations in 3D can be represented using a 4x4 matrix. This matrix is used to perform scaling on homogeneous coordinates.
+
+1. The matrix for scaling can be represented as:
+```math
+   $$
+   \begin{bmatrix}
+   S_x & 0  & 0  & 0 \\
+   0  & S_y & 0  & 0 \\
+   0  & 0  & S_z & 0 \\
+   0  & 0  & 0  & 1
+   \end{bmatrix}
+   $$
+```
+
+3. To scale a point $P$ with coordinates $(x, y, z)$, the scaling matrix is multiplied with the point in homogeneous coordinates. Homogeneous coordinate of point P is represented as:
+```math
+     $$
+     \begin{bmatrix}
+     x \\
+     y \\
+     z \\
+     1
+     \end{bmatrix}
+     $$
+```
+
+4. Matrix multiplication for scaling:
+```math
+   $$
+   \begin{bmatrix}
+   x_{new} \\
+   y_{new} \\
+   z_{new} \\
+   1
+   \end{bmatrix}
+   =
+   \begin{bmatrix}
+   S_x & 0  & 0  & 0 \\
+   0  & S_y & 0  & 0 \\
+   0  & 0  & S_z & 0 \\
+   0  & 0  & 0  & 1
+   \end{bmatrix}
+   \times
+   \begin{bmatrix}
+   x \\
+   y \\
+   z \\
+   1
+   \end{bmatrix}
+   $$
+```
+
+   - Resulting coordinates after scaling:
+     - $x_{new} = x \times S_x$
+     - $y_{new} = y \times S_y$
+     - $z_{new} = z \times S_z$
+
+### Types of Scaling
+1. Uniform Scaling:
+   - If all scaling factors $S_x = S_y = S_z$, then the scaling is called uniform scaling.
+   - This results in the object increasing or decreasing in size uniformly in all directions.
+
+2. Differential Scaling:
+   - If the scaling factors are different $(S_x ≠ S_y ≠ S_z)$, it is called differential scaling.
+   - The object will stretch or shrink differently along each axis.
+
+### Scaling of an Object Relative to a Fixed Point
+- Sometimes, scaling needs to be performed relative to a specific point $(a, b, c)$ rather than the origin.
+- To scale an object relative to a fixed point, follow these steps:
+  1. Translate the fixed point to the origin.
+  2. Scale the object relative to the origin using the scaling matrix.
+  3. Translate the object back to its original position.
+
+## 3D Rotation in Computer Graphics
+- Rotation in 3D graphics refers to rotating an object around one of the three coordinate axes $(x, y, z)$.
+- The object's position changes, but its shape remains the same.
+- When rotating around a specific axis, the coordinate corresponding to that axis remains unchanged.
+
+### General Rules for 3D Rotation
+- Rotation is applied to a specific axis, and the coordinate along that axis remains the same:
+  - Rotation across X-axis: The x coordinate remains unchanged $(X' = X)$.
+  - Rotation across Y-axis: The y coordinate remains unchanged $(Y' = Y)$.
+  - Rotation across Z-axis: The z coordinate remains unchanged $(Z' = Z)$.
+
+### Inverse Transformation Matrix
+- The inverse transformation matrix for a 3D rotation is a 4x4 identity matrix, which is used to transform points back to their original positions if needed:
+```math
+  $$
+  \begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & 1
+  \end{bmatrix}
+  $$
+```
+
+### 3D Rotation Types
+There are three types of rotations in 3D:
+1. Rotation around the X-axis
+2. Rotation around the Y-axis
+3. Rotation around the Z-axis
+
+#### 1. Rotation Around the X-Axis
+Equations for Rotation:
+- $X' = X$
+- $Y' = Y \times cos(\theta) - Z \times sin(\theta)$
+- $Z' = Y \times sin(\theta) + Z \times cos(\theta)$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+1 & 0      & 0       & 0 \\
+0 & \cos\theta  & -\sin\theta  & 0 \\
+0 & \sin\theta  & \cos\theta   & 0 \\
+0 & 0      & 0       & 1
+\end{bmatrix}
+$$
+```
+
+- Let O be the original coordinates (X, Y, Z).
+- After applying the rotation matrix, the new coordinates O' will be:
+  $O' = R_x \times O$
+#### 2. Rotation Around the Y-Axis
+Equations for Rotation:
+- $X' = Z \times sin(\theta) + X \times cos(\theta)$
+- $Y' = Y$
+- $Z' = Z \times cos(\theta) - X \times sin(\theta)$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+\cos\theta  & 0 & \sin\theta & 0 \\
+0      & 1 & 0     & 0 \\
+-\sin\theta & 0 & \cos\theta & 0 \\
+0      & 0 & 0     & 1
+\end{bmatrix}
+$$
+```
+
+- After applying the rotation matrix, the new coordinates O' will be:
+  $O' = R_y \times O$
+  
+#### 3. Rotation Around the Z-Axis
+Equations for Rotation:
+- $X' = X \times cos(\theta) - Y \times sin(\theta)$
+- $Y' = X \times sin(\theta) + Y \times cos(\theta)$
+- $Z' = Z$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+\cos\theta  & -\sin\theta & 0 & 0 \\
+\sin\theta  & \cos\theta  & 0 & 0 \\
+0      & 0      & 1 & 0 \\
+0      & 0      & 0 & 1
+\end{bmatrix}
+$$
+```
+
+- After applying the rotation matrix, the new coordinates O' will be:
+  $O' = R_z \times O$  
+## 3D Shearing in Computer Graphics
+- Shearing in 3D graphics refers to transforming an object so that its shape is distorted in one or more directions. 
+- It shifts the coordinates of an object in one axis, based on the displacement in another axis.
+- Shearing can be applied along the $x$, $y$, or $z$ directions using shearing parameters.
+### Shearing Parameters in 3D
+- Let the initial coordinates of an object $O$ be $(X, Y, Z)$.
+- Shearing is controlled by the parameters:
+  - $Sh_x$: Shearing parameter along the x-direction
+  - $Sh_y$: Shearing parameter along the y-direction
+  - $Sh_z$: Shearing parameter along the z-direction
+### Types of 3D Shearing
+Shearing in 3D can be applied in three ways:
+1. Shearing in the $X$ direction
+2. Shearing in the $Y$ direction
+3. Shearing in the $Z$ direction
+#### 1. Shearing in the X Direction
+Equations for X-axis Shearing:
+- $X' = X$
+- $Y' = Y + Sh_y \times X$
+- $Z' = Z + Sh_z \times X$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+1 & Sh_y & Sh_z & 0 \\
+0 & 1   & 0   & 0 \\
+0 & 0   & 1   & 0 \\
+0 & 0   & 0   & 1
+\end{bmatrix}
+$$
+```
+- In matrix form, the point $(X, Y, Z, 1)$ is transformed using the shearing matrix for the X-axis:
+```math
+  $$
+  \begin{bmatrix}
+  X' \\
+  Y' \\
+  Z' \\
+  1
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  1 & Sh_y & Sh_z & 0 \\
+  0 & 1   & 0   & 0 \\
+  0 & 0   & 1   & 0 \\
+  0 & 0   & 0   & 1
+  \end{bmatrix}
+  \times
+  \begin{bmatrix}
+  X \\
+  Y \\
+  Z \\
+  1
+  \end{bmatrix}
+  $$
+```
+
+#### 2. Shearing in the Y Direction
+
+Equations for Y-axis Shearing:
+- $X' = X + Sh_x \times Y$
+- $Y' = Y$
+- $Z' = Z + Sh_z \times Y$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+1   & 0   & 0   & 0 \\
+Sh_x & 1   & Sh_z & 0 \\
+0   & 0   & 1   & 0 \\
+0   & 0   & 0   & 1
+\end{bmatrix}
+$$
+```
+
+- In matrix form, the point (X, Y, Z, 1) is transformed using the shearing matrix for the Y-axis:
+```math
+  $$
+  \begin{bmatrix}
+  X' \\
+  Y' \\
+  Z' \\
+  1
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  1   & 0   & 0   & 0 \\
+  Sh_x & 1   & Sh_z & 0 \\
+  0   & 0   & 1   & 0 \\
+  0   & 0   & 0   & 1
+  \end{bmatrix}
+  \times
+  \begin{bmatrix}
+  X \\
+  Y \\
+  Z \\
+  1
+  \end{bmatrix}
+  $$
+```
+  
+#### 3. Shearing in the Z Direction
+
+Equations for Z-axis Shearing:
+- $X' = X + Sh_x \times Z$
+- $Y' = Y + Sh_y \times Z$
+- $Z' = Z$
+
+Matrix Representation:
+```math
+$$
+\begin{bmatrix}
+1   & 0   & Sh_x & 0 \\
+0   & 1   & Sh_y & 0 \\
+0   & 0   & 1   & 0 \\
+0   & 0   & 0   & 1
+\end{bmatrix}
+$$
+```
+- In matrix form, the point $(X, Y, Z, 1)$ is transformed using the shearing matrix for the Z-axis:
+```math
+  $$
+  \begin{bmatrix}
+  X' \\
+  Y' \\
+  Z' \\
+  1
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  1   & 0   & Sh_x & 0 \\
+  0   & 1   & Sh_y & 0 \\
+  0   & 0   & 1   & 0 \\
+  0   & 0   & 0   & 1
+  \end{bmatrix}
+  \times
+  \begin{bmatrix}
+  X \\
+  Y \\
+  Z \\
+  1
+  \end{bmatrix}
+  $$
+```
+
