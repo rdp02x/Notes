@@ -17,10 +17,6 @@
 4. **Shearing:** Skews a graphic, altering its shape by shifting one part in a direction while keeping the other part fixed.
 5. **Reflection:** Creates a mirror image of a graphic across a specific line or axis.
 
-### Transformation in a 2D Plane:
-- When transformations are applied to objects in a 2D plane (two-dimensional space), it is referred to as **2D Transformation**.
-- Each transformation is represented mathematically, using transformation matrices that define how to alter the position or size of graphics.
-
 ### Composite Transformation Process
 - To achieve complex transformations, multiple transformations can be combined.
 - A sequential process helps in building complex transformations by combining simpler ones, enabling more versatile manipulation of graphics.
@@ -46,18 +42,23 @@
   - Example:
   - Cartesian point $P(X, Y)$ in Cartesian coordinates becomes $P'(X_h, Y_h, h)$, where $X_h = X \times h$and $Y_h = Y \times h$.
 
-## Translation
+# Transformation in a 2D Plane:
+- When transformations are applied to objects in a 2D plane (two-dimensional space), it is referred to as **2D Transformation**.
+- Each transformation is represented mathematically, using transformation matrices that define how to alter the position or size of graphics.
 
+## Translation
 - **Translation** in computer graphics is the process of shifting an object or point from one location to another on the screen. 
 - The distance and direction of this shift are determined by a specified translation vector.
 - It moves an object to a new position by adjusting its coordinates.
 - It is used to relocate objects on the screen without altering their shape, size, or orientation.
+
 #### Translation in 2D:
 - In a 2D plane, a point’s position can be shifted by adding the translation distances $t_x$ and $t_y$ to the original coordinates.
 - Given a point $P(X, Y)$, its new translated position $P'(X', Y')$ is calculated as:
   - $X' = X + t_x$
   - $Y' = Y + t_y$
 - Here, $(t_x, t_y)$ is called the **translation vector** or **shift vector**.
+
 #### Matrix Representation of Translation:
 - Translation can also be represented using matrix notation, which is useful for performing transformations on multiple points or objects efficiently.
 - This provides a straightforward way to compute the new position of points after translation by adding the translation vector to the original coordinates.
