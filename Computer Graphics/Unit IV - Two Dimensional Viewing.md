@@ -1,4 +1,4 @@
-# Unit IV - Two Dimensional Viewing.md
+# Unit IV - Two Dimensional Viewing
 
 ### Window
 - A window is an opening that allows a viewer to observe a specific part of the outside world or graphical scene.
